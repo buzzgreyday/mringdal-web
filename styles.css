@@ -1,0 +1,45 @@
+body {
+    font-family: 'Roboto Mono', monospace;
+    background-image: url('file:///bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+a {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+}
+
+h5 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 17px;
+}
+
+h6 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+}
+
+#toTopBtn {
+    font-family: 'Press Start 2P';
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 11px;
+    background-color: #0275d8;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#toTopBtn:hover {
+    background-color: #0275d8;
+}

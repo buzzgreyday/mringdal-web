@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mringdal.com</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75">
+        <div class="container-fluid">
+            <a class="navbar-brand fs-6" href="#">Michael Ringdal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="navbar-item">
+                        <a class="nav-link" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section id="about" class="py-5 bg-dark text-light bg-opacity-75">
+        <div class="container">
+            <p>Python programming. Master in philosophy. Data analytics. Kitsch. </p>
+        </div>
+    </section>
+    <section id="projects" class="py-5 bg-white bg-opacity-75">
+        <div class="container">
+            <h5 class="text-center mb-4">Projects</h5>
+            <div id="projectItems" class="row"></div>
+        </div>
+    </section>
+    <section id="portfolio" class="py-5 bg-dark text-light bg-opacity-75">
+        <div class="container">
+            <h5 class="text-center mb-4">Portfolio</h5>
+            <div id="portfolioItems" class="row"></div>
+        </div>
+    </section>
+    <button id="toTopBtn" onclick="scrollToTop()" title="Go to top">Top</button>
+    <script src="script.js"></script>
+</body>
+</html>
