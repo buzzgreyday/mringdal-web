@@ -1,27 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mringdal.com</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <!-- Latest Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-image: url('bg.jpg');
+            /* Replace 'background.jpg' with your image URL */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        a {
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+        }
+        h6 {
+            font-family: 'Press Start 2P',
+            cursive;
+        }
+        h3 {
+            font-family: 'Press Start 2P',
+            cursive;
+        }
+
+
+
+        #toTopBtn {
+            font-family: 'Press Start 2P';
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            font-size: 11px;
+            background-color: #0275d8;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #toTopBtn:hover {
+            background-color: #0275d8;
+        }
+    </style>
+
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-opacity-75">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- Top Menu -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark bg-opacity-75">
         <div class="container-fluid">
-            <a class="navbar-brand fs-6" href="#">Michael Ringdal</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <a class="navbar-brand" style="font-size:1.25rem;" href="#">Michael Ringdal</a>
+
+            <button class="navbar-toggler fs-6" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">#</button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projects</a>
                     </li>
-                    <li class="navbar-item">
-                        <a class="nav-link" href="#portfolio">Portfolio</a>
-                    </li>
+
+                    <li class="navbar-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
                     </li>
@@ -29,24 +89,84 @@
             </div>
         </div>
     </nav>
-    <section id="about" class="py-5 bg-dark text-light bg-opacity-75">
+
+    <!-- About Page -->
+    <section id="about" class="py-5 bg-dark text-light bg-opacity-75 fs-5">
         <div class="container">
-            <p>Python programming. Master in philosophy. Data analytics. Kitsch. </p>
+            <p>Python programming. Master in philosophy. Data analytics. IT nerd. </p>
         </div>
     </section>
+
+    <!-- Projects Section -->
     <section id="projects" class="py-5 bg-white bg-opacity-75">
         <div class="container">
-            <h5 class="text-center mb-4">Projects</h5>
-            <div id="projectItems" class="row"></div>
-        </div>
-    </section>
-    <section id="portfolio" class="py-5 bg-dark text-light bg-opacity-75">
-        <div class="container">
-            <h5 class="text-center mb-4">Portfolio</h5>
+            <h3 class="text-center mb-4">Projects</h3>
             <div id="portfolioItems" class="row"></div>
         </div>
     </section>
+
+        <!-- Portfolio Section -->
+    <section id="portfolio" class="py-5 bg-dark text-light bg-opacity-75">
+        <div class="container">
+            <h3 class="text-center mb-4">Portfolio</h3>
+            <div id="portfolioItems" class="row"></div>
+        </div>
+    </section>
+
+    <!-- To Top Button -->
     <button id="toTopBtn" onclick="scrollToTop()" title="Go to top">Top</button>
-    <script src="script.js"></script>
+
+    <!-- Latest Bootstrap and jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+    $(document).ready(function () {
+        // List of project names to ignore
+        var projectsToIgnore = ['ISL-linear-regression', 'BigO'];
+
+        // Fetch portfolio data from GitHub API
+        $.getJSON('https://api.github.com/users/buzzgreyday/repos', function (data) {
+            var portfolioItems = $('#portfolioItems');
+            $.each(data, function (index, item) {
+                // Check if the project name is not in the list of projects to ignore
+                if (!projectsToIgnore.includes(item.name)) {
+                    var portfolioItem = `
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h6 class="card-title">${item.name}</h6>
+                                <p class="card-text fs-5">${item.description}</p>
+                                <a href="${item.html_url}" class="btn btn-primary">View</a>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                    portfolioItems.append(portfolioItem);
+                }
+            });
+        });
+    });
+    // Show or hide the toTop button based on scroll position
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("toTopBtn").style.display = "block";
+            } else {
+                document.getElementById("toTopBtn").style.display = "none";
+            }
+        }
+
+        // Scroll to top function
+        function scrollToTop() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+  </script>
+
+
 </body>
+
 </html>
