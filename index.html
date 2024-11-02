@@ -44,7 +44,46 @@
             margin-bottom: 20px;
         }
 
+        /* Style form fields */
+        #fs-frm label {
+            font-weight: 600;
+            color: #333;
+            margin-top: 1rem;
+            display: block;
+        }
 
+        #fs-frm input[type="text"],
+        #fs-frm input[type="email"],
+        #fs-frm textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-top: 0.25rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        /* Adjust textarea resizing */
+        #fs-frm textarea {
+            resize: vertical;
+        }
+
+        /* Style the submit button */
+        #fs-frm input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Hover effect for the submit button */
+        #fs-frm input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
 
         #toTopBtn {
             font-family: 'Press Start 2P';
@@ -67,6 +106,8 @@
         #toTopBtn:hover {
             background-color: #0275d8;
         }
+
+
     </style>
 
 
@@ -88,6 +129,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -199,49 +243,53 @@
         </div>
     </section>
 
-    <!-- Portfolio Section -->
-    <section id="connect" class="py-5 bg-white text-dark bg-opacity-75">
-        <!--  <h3 class="text-center mb-4">Connect</h3> -->
-        <div class="shields">
-            <a href="https://github.com/buzzgreyday" target="_blank">
-                <img alt="Github" src="https://img.shields.io/badge/GitHub-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white" />
-            </a>
-            <a href="https://discordapp.com/users/794353079825727500" target="_blank">
-                <img alt="Discord" src="https://img.shields.io/badge/Discord-%235865F2.svg?&style=for-the-badge&logo=discord&logoColor=white" />
-            </a>
-            <a href="mailto:micbr@pm.me" target="_blank">
-                <img alt="Email" src="https://img.shields.io/badge/Proton%20Mail-6D4AFF?&style=for-the-badge&logo=protonmail&logoColor=fff" />
-            </a>
-            <a href="https://www.linkedin.com/in/michael-ringdal" target="_blank">
-                <img alt="LinkedIn" src="https://img.shields.io/badge/Linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
-            </a>
-            <a href="https://t.me/buzzgreyday" target="_blank">
-                <img alt="Telegram" src="https://img.shields.io/badge/Telegram-2CA5E0?&style=for-the-badge&logo=telegram&logoColor=white" />
-            </a>
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-5 bg-dark text-white bg-opacity-75">
+        <div class="container">
+            <h3 class="text-center mb-4">Contact</h3>
+            <div class="row justify-content-center">
+                <div class="col-md-8 col-lg-6">
+                    <div class="card p-4 shadow">
+                        <form id="fs-frm" name="simple-contact-form" accept-charset="utf-8" action="https://formspree.io/f/mdkoepob" method="post">
+                            <fieldset id="fs-frm-inputs">
+                                <label for="full-name">Full Name</label>
+                                <input type="text" name="name" id="full-name" placeholder="First and Last" required>
+
+                                <label for="email-address">Email Address</label>
+                                <input type="email" name="email" id="email-address" placeholder="email@domain.tld" required>
+
+                                <label for="message">Message</label>
+                                <textarea rows="5" name="message" id="message" placeholder="Your message..." required></textarea>
+
+                                <input type="hidden" name="_subject" id="email-subject" value="Contact Form Submission">
+                            </fieldset>
+                            <div class="text-center">
+                                <input type="submit" value="Submit" class="btn btn-primary mt-3">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <p>&nbsp;</p>
+            <div class="shields">
+                <a href="https://github.com/buzzgreyday" target="_blank">
+                    <img alt="Github" src="https://img.shields.io/badge/GitHub-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white" />
+                </a>
+                <a href="https://discordapp.com/users/794353079825727500" target="_blank">
+                    <img alt="Discord" src="https://img.shields.io/badge/Discord-%235865F2.svg?&style=for-the-badge&logo=discord&logoColor=white" />
+                </a>
+                <a href="mailto:micbr@pm.me" target="_blank">
+                    <img alt="Email" src="https://img.shields.io/badge/Proton%20Mail-6D4AFF?&style=for-the-badge&logo=protonmail&logoColor=fff" />
+                </a>
+                <a href="https://www.linkedin.com/in/michael-ringdal" target="_blank">
+                    <img alt="LinkedIn" src="https://img.shields.io/badge/Linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+                </a>
+                <a href="https://t.me/buzzgreyday" target="_blank">
+                    <img alt="Telegram" src="https://img.shields.io/badge/Telegram-2CA5E0?&style=for-the-badge&logo=telegram&logoColor=white" />
+                </a>
+            </div>
         </div>
     </section>
-
-    <!-- Contact Form Section -->
-    <!-- <section id="contact" class="py-5 bg-light">
-        <h3 class="text-center mb-4">Contact Us</h3>
-        <form>
-            <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-            </div>
-            <div class="mb-3">
-                <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com" required>
-            </div>
-            <div class="mb-3">
-                <label for="message" class="form-label">Message</label>
-                <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
-            </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-    </section> -->
 
     <!-- To Top Button -->
     <button id="toTopBtn" onclick="scrollToTop()" title="Go to top">Top</button>
