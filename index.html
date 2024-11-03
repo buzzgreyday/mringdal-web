@@ -44,6 +44,15 @@
             margin-bottom: 20px;
         }
 
+        /* Base size for larger screens */
+        .badge-img {
+            width: auto;
+            height: 20px; /* Default height */
+            position: relative;
+            top: -5px; /* Adjust upward when close */
+            margin-left: 1px; /* Extra margin to separate from the button */
+        }
+
         /* Style form fields */
         #fs-frm label {
             font-weight: 600;
@@ -105,6 +114,19 @@
 
         #toTopBtn:hover {
             background-color: #0275d8;
+        }
+
+        /* Scale down on smaller screens */
+        @media (max-width: 576px) { /* Adjust for very small screens */
+            .badge-img {
+                height: 18px; /* Reduce height */
+            }
+        }
+
+        @media (max-width: 768px) { /* Adjust for small to medium screens */
+            .badge-img {
+                height: 20px; /* Slightly smaller */
+            }
         }
 
 
@@ -206,9 +228,7 @@
                             <a href="https://nodebot.app" class="btn btn-primary">Website</a>
                             <a href="https://discord.gg/WHwSdWJED3" class="btn btn-primary">Discord</a>
                         </div>
-                        <div class="position-absolute bottom-0 end-0 m-3">
-                            <img alt="nodebot-subs" src="https://img.shields.io/badge/node%20subs-130%2B-blue?labelColor=gray&color=0275D8" />
-                        </div>
+                        <img alt="nodebot-subs" src="https://img.shields.io/badge/node%20subs-130%2B-blue?labelColor=gray&color=0275D8" class="badge-img position-absolute bottom-0 end-0 m-3" />
                     </div>
                 </div>
             </div>
